@@ -295,8 +295,43 @@ decay({ clock: Clock, value: Node, velocity: Node, deceleration: number} ): Node
 
 Convenience function to run a spring animation.
 
-```js
-decay({ clock: Clock, value: Node, velocity: Node, config: SpringConfig }): Node
+```tsx
+spring({ clock?: Clock, from?: Node, velocity?: number, config?: SpringConfig, to?: Node }): Node
+```
+
+### `toggle({ clock?: Clock, from?: Node, to?: Node, duration?: Node, easing?: EasingFunction }): Node`
+
+Convenience function to imperatively toggle animation.
+
+Example usage:
+
+```tsx
+toggle({
+  clock: Clock,
+  value: Node,
+  closeState: Node,
+  openState: Node,
+  easing: EasingFunction,
+  duration: number,
+  from: Node,
+  to: Node,
+})
+
+const handleToggleButtonPress = (shouldOpen: boolean) => {
+  shouldOpen ? open.setValue(1) : close.setValue(1)
+}
+
+useCode(
+  block([
+    toggle({
+      value: translationY,
+      openValue: open,
+      closeValue: close,
+      open: 100,
+      close: 200,
+    }),
+  ]),
+)
 ```
 
 ### `bInterpolate(node: Node, from: Node, to: Node): Node`
@@ -408,7 +443,7 @@ Example usage for a vertical `PanGestureHandler`.
 ```js
 const translationX = new Value(0);
 const state = new Value(State.UNDETERMINED);
-const gestureEvent = onGestureEvent({ translationX, state }) 
+const gestureEvent = onGestureEvent({ translationX, state })
 return (
   <PanGestureHandler {...gestureEvent} />
 );
