@@ -23,7 +23,7 @@ const {
 type AnimatedTransform = {
   [P in keyof TransformsStyle["transform"]]: Animated.Adaptable<
     TransformsStyle["transform"][P]
-  >;
+  >
 };
 
 export const snapPoint = (
@@ -95,8 +95,12 @@ export const useTransition = <T>(
   );
 
   React.useEffect(() => {
-    state ? openState.setValue(1) : closeState.setValue(1);
-  }, [state]);
+    if (state) {
+      openState.setValue(1);
+    } else {
+      closeState.setValue(1);
+    }
+  }, [closeState, openState, state]);
 
   useCode(
     block([

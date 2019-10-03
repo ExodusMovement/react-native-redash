@@ -282,7 +282,7 @@ export const toggle = (params: {
           duration,
           easing,
           from: value,
-          to: to
+          to
         })
       ),
       cond(not(clockRunning(clock)), [set(openState, 0)])
