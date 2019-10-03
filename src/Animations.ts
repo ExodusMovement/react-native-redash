@@ -4,26 +4,26 @@ import { useMemoOne } from "use-memo-one";
 
 import { TransformsStyle } from "react-native";
 import { min } from "./Math";
-import { timing } from "./AnimationRunners";
+import { toggle } from "./AnimationRunners";
 
 const {
   Value,
-  set,
-  add,
-  multiply,
-  cond,
-  eq,
   abs,
-  sub,
-  interpolate,
+  add,
+  block,
+  cond,
   divide,
+  eq,
+  interpolate,
+  multiply,
+  sub,
   useCode
 } = Animated;
 
 type AnimatedTransform = {
   [P in keyof TransformsStyle["transform"]]: Animated.Adaptable<
     TransformsStyle["transform"][P]
-  >
+  >;
 };
 
 export const snapPoint = (
@@ -85,23 +85,32 @@ export const useTransition = <T>(
       "useCode() is only available in Reanimated 1.0.0 or higher"
     );
   }
-  const { transitionVal } = useMemoOne(
+  const { openState, closeState, transitionVal } = useMemoOne(
     () => ({
+      openState: new Value<0 | 1>(0),
+      closeState: new Value<0 | 1>(0),
       transitionVal: new Value(0)
     }),
     []
   );
+
+  React.useEffect(() => {
+    state ? openState.setValue(1) : closeState.setValue(1);
+  }, [state]);
+
   useCode(
-    set(
-      transitionVal,
-      timing({
+    block([
+      toggle({
+        value: transitionVal,
+        openState,
+        closeState,
         from: src,
         to: dest,
-        duration,
-        easing
+        easing,
+        duration
       })
-    ),
-    [state]
+    ]),
+    []
   );
   return transitionVal;
 };

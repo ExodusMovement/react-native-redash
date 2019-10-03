@@ -1,4 +1,5 @@
 import Animated, { Easing } from "react-native-reanimated";
+import { EasingFunction } from "react-native";
 
 const {
   Clock,
@@ -251,22 +252,24 @@ export const loop = (loopConfig: LoopProps) => {
 };
 
 export const toggle = (params: {
-  clock: Animated.Clock;
-  closeState: Animated.Value<number>;
-  closeTo: number;
-  duration: number;
-  openState: Animated.Value<number>;
-  openTo: number;
-  value: Animated.Value<number>;
+  clock?: Animated.Clock;
+  closeState: Animated.Adaptable<0 | 1>;
+  duration?: number;
+  from: Animated.Adaptable<number>;
+  openState: Animated.Adaptable<0 | 1>;
+  to: Animated.Adaptable<number>;
+  easing?: Animated.EasingFunction;
+  value: Animated.Adaptable<number>;
 }) => {
-  const { openState, duration, value, closeState, openTo, closeTo, clock } = {
+  const { openState, easing, duration, value, closeState, to, from, clock } = {
     clock: new Clock(),
-    value: new Value(0),
     closeState: new Value(0),
-    openState: new Value(0),
-    closeTo: new Value(0),
-    openTo: new Value(0),
     duration: 250,
+    easing: Easing.linear,
+    from: new Value(0),
+    openState: new Value(0),
+    to: new Value(0),
+    value: new Value(0),
     ...params
   };
 
@@ -276,10 +279,10 @@ export const toggle = (params: {
         value,
         timing({
           clock,
+          duration,
+          easing,
           from: value,
-          to: openTo,
-          easing: Easing.linear,
-          duration
+          to: to
         })
       ),
       cond(not(clockRunning(clock)), [set(openState, 0)])
@@ -289,10 +292,10 @@ export const toggle = (params: {
         value,
         timing({
           clock,
+          duration,
+          easing,
           from: value,
-          to: closeTo,
-          easing: Easing.linear,
-          duration
+          to: from
         })
       ),
       cond(not(clockRunning(clock)), [set(closeState, 0)])
