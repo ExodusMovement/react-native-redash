@@ -1,5 +1,4 @@
 import Animated, { Easing } from "react-native-reanimated";
-import { EasingFunction } from "react-native";
 
 const {
   Clock,
@@ -253,13 +252,13 @@ export const loop = (loopConfig: LoopProps) => {
 
 export const toggle = (params: {
   clock?: Animated.Clock;
-  closeState: Animated.Adaptable<0 | 1>;
+  closeState: Animated.Value<0 | 1>;
   duration?: number;
   from: Animated.Adaptable<number>;
-  openState: Animated.Adaptable<0 | 1>;
+  openState: Animated.Value<0 | 1>;
   to: Animated.Adaptable<number>;
   easing?: Animated.EasingFunction;
-  value: Animated.Adaptable<number>;
+  value: Animated.Value<number>;
 }) => {
   const { openState, easing, duration, value, closeState, to, from, clock } = {
     clock: new Clock(),
