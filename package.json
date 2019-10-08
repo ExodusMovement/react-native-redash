@@ -1,6 +1,6 @@
 {
   "name": "@exodus/react-native-redash",
-  "version": "0.0.0-development",
+  "version": "8.2.0",
   "description": "Utility library for React Native Reanimated",
   "main": "lib/index.js",
   "scripts": {
