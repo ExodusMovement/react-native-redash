@@ -35,11 +35,3 @@ jobs:
         
       # run tests!
       - run: yarn test
-
-      - deploy:
-          name: NPM Deployment
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                yarn semantic-release
-            fi
-

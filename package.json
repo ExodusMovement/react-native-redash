@@ -1,14 +1,13 @@
 {
-  "name": "react-native-redash",
+  "name": "@exodus/react-native-redash",
   "version": "0.0.0-development",
   "description": "Utility library for React Native Reanimated",
-  "main": "lib/module/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint --ext .ts,.tsx src",
     "tsc": "tsc --noEmit",
     "test": "yarn lint && yarn tsc",
-    "prepare": "bob build",
-    "semantic-release": "semantic-release"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,7 +26,6 @@
     "react-native-reanimated": "*"
   },
   "devDependencies": {
-    "@react-native-community/bob": "^0.4.1",
     "@types/react": "^16.8.15",
     "@types/react-native": "^0.57.51",
     "eslint": "^5.16.0",
@@ -36,25 +34,11 @@
     "react-native": "^0.59.5",
     "react-native-gesture-handler": "^1.2.1",
     "react-native-reanimated": "^1.2.0",
-    "semantic-release": "^15.13.3",
-    "semantic-release-cli": "^4.1.2",
     "typescript": "^3.6.2"
   },
-  "react-native": "lib/module/index.js",
-  "module": "lib/module/index.js",
-  "types": "lib/typescript/index.d.ts",
   "files": [
-    "src",
     "lib"
   ],
-  "@react-native-community/bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "module",
-      "typescript"
-    ]
-  },
   "dependencies": {
     "abs-svg-path": "^0.1.1",
     "normalize-svg-path": "^1.0.1",
