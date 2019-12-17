@@ -10,12 +10,11 @@ interface TextProps {
 }
 
 export default (props: TextProps) => {
-  const { text, style } = { style: {}, ...props };
   return (
     <AnimatedTextInput
       underlineColorAndroid="transparent"
       editable={false}
-      {...{ text, style }}
+      {...props}
     />
   );
 };
