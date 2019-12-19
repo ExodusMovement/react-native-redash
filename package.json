@@ -1,6 +1,6 @@
 {
   "name": "@exodus/react-native-redash",
-  "version": "8.2.0-exodus2",
+  "version": "8.2.0-exodus3",
   "description": "Utility library for React Native Reanimated",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "react": "*",
     "react-native": "*",
     "react-native-gesture-handler": "*",
-    "react-native-reanimated": "*"
+    "@exodus/react-native-reanimated": "*"
   },
   "devDependencies": {
     "@types/react": "^16.8.15",
@@ -33,7 +33,7 @@
     "react": "^16.8.6",
     "react-native": "^0.59.5",
     "react-native-gesture-handler": "^1.2.1",
-    "react-native-reanimated": "^1.2.0",
+    "@exodus/react-native-reanimated": "1.2.0",
     "typescript": "^3.6.2"
   },
   "files": [
