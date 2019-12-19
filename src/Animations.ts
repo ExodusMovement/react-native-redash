@@ -1,5 +1,5 @@
 import * as React from "react";
-import Animated, { Easing } from "react-native-reanimated";
+import Animated, { Easing } from "@exodus/react-native-reanimated";
 import { useMemoOne } from "use-memo-one";
 
 import { TransformsStyle } from "react-native";

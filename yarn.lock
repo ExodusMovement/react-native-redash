@@ -569,6 +569,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@exodus/react-native-reanimated@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@exodus/react-native-reanimated/-/react-native-reanimated-1.2.0.tgz#4dc6793fc8c79948902a8ae8a1f7eef5ff008360"
+  integrity sha512-VIzTlZup0R2ZDA4CHFqBoefFPu44yYDs7hEaKz6iUptuoJ5CUu25qWho9ohQ9Rg4PZw+yKuZmLrtQ+aU3n3wcw==
+
 "@react-native-community/cli@^1.2.1":
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-1.9.2.tgz#d033ab141df3a476e628aecd9c99534b5cb0d63e"
@@ -3619,10 +3624,6 @@ react-native-gesture-handler@^1.2.1:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
-
-react-native-reanimated@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.3.0.tgz#581cdb0bd1ff05e7304b116af712ded0c7665ede"
 
 react-native@^0.59.5:
   version "0.59.5"

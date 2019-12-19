@@ -1,4 +1,4 @@
-import Animated from "react-native-reanimated";
+import Animated from "@exodus/react-native-reanimated";
 import parseSVG from "parse-svg-path";
 import absSVG from "abs-svg-path";
 import normalizeSVG from "normalize-svg-path";

@@ -1,4 +1,4 @@
-import Animated from "react-native-reanimated";
+import Animated from "@exodus/react-native-reanimated";
 
 import { find } from "../Array";
 import { acos, approximates } from "../Math";
